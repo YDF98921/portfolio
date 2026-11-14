@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>姚定方 · AIGC 内容制作 / 作品集</title>
+<meta name="description" content="姚定方的作品集 —— AIGC 影像、品牌短片与视觉工作流。" />
+
+<!--
+  ┌─────────────────────────────────────────────────────────────┐
+  │ 改成你自己的内容，只需要动这个文件：                          │
+  │  1. <title> 与 hero 里的姓名、职位、简介（见下方 hero 区）      │
+  │  2. 项目列表：<section id="work"> 里的每个 .work__item         │
+  │  3. 关于、经历、工具：对应 <section>                          │
+  │  4. 邮箱 / 社交链接：<section id="contact">                    │
+  │  每个 .work__item 的 data-art="1~5" 决定悬停预览的图案。       │
+  └─────────────────────────────────────────────────────────────┘
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2317160F'/%3E%3Ctext x='32' y='45' font-size='30' fill='%23F2EEE5' text-anchor='middle' font-family='Georgia,serif'%3EYDF%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<aside class="rail">
+  <a class="rail__mark" href="#top" aria-label="回到顶部">
+    <span class="rail__dot"></span>姚定方<span class="rail__mark-en">/ YDF</span>
+  </a>
+
+  <nav class="rail__nav" aria-label="页面导航">
+    <a href="#work"><i>01</i>作品</a>
+    <a href="#about"><i>02</i>关于</a>
+    <a href="#experience"><i>03</i>经历</a>
+    <a href="#contact"><i>04</i>联系</a>
+  </nav>
+
+  <div class="rail__meta">
+    武汉 · GMT+8<br />
+    <span class="status"><span class="rail__dot"></span>接洽中</span>
+  </div>
+</aside>
+
+<main id="top">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <header class="hero">
+    <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+    <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+
+    <div class="hero__grid">
+      <div class="hero__main">
+        <p class="eyebrow reveal">Portfolio — 2026 年度版</p>
+        <h1 class="hero__name"><span><span>姚定方</span></span></h1>
+        <p class="hero__role reveal"><span class="hero__role-line"></span>AIGC 内容制作 / 摄影剪辑</p>
+      </div>
+
+      <div class="hero__side reveal">
+        <p class="hero__lead">
+          七年内容制作经验：从电商平面的拍摄修图、抖音账号起号，到现在的全 AI 短片。
+          脚本、拍摄、剪辑、交付，一个人跑完整条链路。
+        </p>
+        <dl class="facts">
+          <div><dt>所在</dt><dd>武汉 · 中国</dd></div>
+          <div><dt>方向</dt><dd>摄影剪辑 · AIGC</dd></div>
+          <div><dt>状态</dt><dd><span class="rail__dot"></span>可接洽合作</dd></div>
+          <div><dt>更新</dt><dd>2026.11</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="hero__foot reveal">
+      <span>向下滚动</span>
+      <span class="rule"></span>
+      <span>01 — 04</span>
+    </div>
+  </header>
+
+  <!-- ═══════════ 01 作品 ═══════════ -->
+  <section class="section" id="work">
+    <div class="section__head reveal">
+      <h2 class="section__title"><span class="section__no">01</span>作品</h2>
+      <p class="section__label">Selected Work</p>
+      <p class="section__note">实验短片、品牌 TVC 与直播 Demo，视频均可在页面内直接播放全片。</p>
+    </div>
+
+    <article class="feature reveal">
+      <div class="feature__media">
+        <video
+          id="featureVideo"
+          src="assets/vulture.mp4"
+          controls
+          muted
+          loop
+          playsinline
+          preload="auto"
+        ></video>
+        <span class="feature__no">01 / FEATURED</span>
+      </div>
+
+      <div class="feature__caption">
+        <div>
+          <h3 class="feature__title">秃鹫的金币 <em>AI 实验短片</em></h3>
+          <p class="feature__desc">一个简单的寓言。第一次把 AI 生成的镜头连成一部完整短片——比起效果，更在意画面能不能跟着叙事走。</p>
+        </div>
+        <div class="feature__meta">
+          <span id="featureDur">全片</span>
+          <span>2026</span>
+          <span>AI 影像 · 分镜 · 剪辑</span>
+        </div>
+      </div>
+    </article>
+
+    <div class="video-grid">
+      <article class="video-card reveal">
+        <div class="feature__media">
+          <video
+            src="assets/qingjian.mp4"
+            poster="assets/qingjian-poster.jpg"
+            controls
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+          <span class="feature__no">02 / BRAND TVC</span>
+        </div>
+        <div class="feature__caption">
+          <div>
+            <h3 class="feature__title">青涧 <em>茶品牌 TVC</em></h3>
+            <p class="feature__desc">以茶叶舒展、中式庭院与品饮人物串联品牌意象，用光影和留白呈现清雅的东方茶境。</p>
+          </div>
+          <div class="feature__meta">
+            <span>0:29</span>
+            <span>品牌影像</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="video-card reveal">
+        <div class="feature__media">
+          <video
+            src="assets/beauty.mp4"
+            poster="assets/beauty-poster.jpg"
+            controls
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+          <span class="feature__no">03 / LIVE DEMO</span>
+        </div>
+        <div class="feature__caption">
+          <div>
+            <h3 class="feature__title">美妆直播 Demo <em>AIGC 直播影像</em></h3>
+            <p class="feature__desc">在粉色直播间完成口红展示、手部试色与产品讲解，覆盖主播中景和商品细节近景。</p>
+          </div>
+          <div class="feature__meta">
+            <span>1:00</span>
+            <span>直播内容</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══════════ 02 关于 ═══════════ -->
+  <section class="section" id="about">
+    <div class="section__head reveal">
+      <h2 class="section__title"><span class="section__no">02</span>关于</h2>
+      <p class="section__label">About</p>
+    </div>
+
+    <div class="about">
+      <div class="about__text reveal">
+        <p class="about__lead">工具会一直换，判断力不会。</p>
+        <p>七年里我一直在内容与技术之间：先是在美妆公司拍平面、修图，后来去 ERP 公司做抖音账号，再到食品品牌从起号、直播到抖店后台一个人扛。现在用生成式工具，把整条视频生产拆成可交接的 SOP。</p>
+        <p>做过食品、美妆、服饰三个品类。零预算、没有样品和场地的条件下，也用 AI 交付过整支零食素材片。判断一个镜头好不好，靠的还是看过的片子、拍过的手感，而不是提示词。</p>
+      </div>
+
+      <aside class="about__panel reveal">
+        <p class="panel__label">/ 快速档案</p>
+        <ul class="panel__list">
+          <li><span>经验</span><b>7 年</b></li>
+          <li><span>方向</span><b>摄影剪辑 · AIGC</b></li>
+          <li><span>目前</span><b>食品品牌 视频运营</b></li>
+          <li><span>语言</span><b>中文</b></li>
+        </ul>
+      </aside>
+    </div>
+
+    <div class="tape" aria-hidden="true">
+      <div class="tape__track">
+        <span>可接洽合作</span><span>·</span><span>Available for work</span><span>·</span>
+        <span>AIGC 影像</span><span>·</span><span>品牌短片</span><span>·</span>
+        <span>可接洽合作</span><span>·</span><span>Available for work</span><span>·</span>
+        <span>AIGC 影像</span><span>·</span><span>品牌短片</span><span>·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 03 经历 ═══════════ -->
+  <section class="section" id="experience">
+    <div class="section__head reveal">
+      <h2 class="section__title"><span class="section__no">03</span>经历</h2>
+      <p class="section__label">Experience</p>
+    </div>
+
+    <ol class="timeline">
+      <li class="timeline__item reveal">
+        <span class="timeline__time">2024.06 — 至今</span>
+        <div class="timeline__body">
+          <h3>摄影剪辑 · 视频运营<span>沙洋昊琪食品有限公司</span></h3>
+          <p>负责视频号与抖音起号、人设打造和直播运营；对接带货达人与供应链（小明正能量、团书记赵美丽、憨豆妹、邵谦等），管理抖店与微信小店后台的上下架与货盘。起号账号：幺妹儿黄小黄、黄小黄的乡村生活。</p>
+        </div>
+        <span class="timeline__tag">全职</span>
+      </li>
+      <li class="timeline__item reveal">
+        <span class="timeline__time">2023.10 — 2024.06</span>
+        <div class="timeline__body">
+          <h3>摄影<span>义乌市弘兆信息技术有限公司</span></h3>
+          <p>运营抖音号「弘兆云ERP」：分析目标用户写文案，跟平台热点拍摄并做广告拓客。单条最高播放 10 万+，精准人群涨粉 3000+。</p>
+        </div>
+        <span class="timeline__tag">全职</span>
+      </li>
+      <li class="timeline__item reveal">
+        <span class="timeline__time">2022.03 — 2023.08</span>
+        <div class="timeline__body">
+          <h3>摄影 / 摄像师<span>义乌市宝丽诗化妆品有限公司</span></h3>
+          <p>负责国际站与海外平台的美妆平面拍摄和图片精修，以及产品营销视频的拍摄。</p>
+        </div>
+        <span class="timeline__tag">全职</span>
+      </li>
+      <li class="timeline__item reveal">
+        <span class="timeline__time">2016 — 2018</span>
+        <div class="timeline__body">
+          <h3>软件技术 大专<span>湖北职业技术学院</span></h3>
+          <p>计算机与程序思维的基础，后来成了拆解流程、写 SOP 的底子。</p>
+        </div>
+        <span class="timeline__tag">教育</span>
+      </li>
+    </ol>
+
+    <div class="proj">
+      <p class="proj__label reveal">/ 项目经历 · Projects</p>
+
+      <article class="proj__item reveal">
+        <h3>视频剪辑 · AI 素材生产 SOP<span>零食类目 · 独立搭建 · 零工具成本</span></h3>
+        <ul>
+          <li>把生产拆成 8 个固定环节（含资产图前置），每环定义输入、动作、产出与验收标准，形成可交接的 SOP。</li>
+          <li>零预算、无样品与场地条件下，全 AI 完成零食素材成片并交付：16 秒 / 约 12 镜（1080×1920 · 30fps），涵盖钩子、显量、卖点、质地、酥脆、新吃法、场景七段结构。</li>
+          <li>落地两个此前被判为「AI 高危」的连续手部动作镜头（入袋抓取、双手掰断 + 碎屑飞溅），全片无面部出镜，交付无崩坏。</li>
+          <li>一致性漂移后补建资产图体系（产品 / 场景 / 色调 / 构图四类，白底资产与场景镜头分层），重做基准图后连续 7 张一次通过。</li>
+          <li>单条素材耗时由 2 小时降至 45—60 分钟，零件复用率约 60%。</li>
+        </ul>
+      </article>
+
+      <article class="proj__item reveal">
+        <h3>同赛道爆款拆解与骨架聚类<span>2026.06 — 至今 · 零食 / 服饰</span></h3>
+        <ul>
+          <li>拆解 8 条高互动素材（零食 3 / 服饰 5），产出 8 份拆解报告与两张结构化底表。</li>
+          <li>归并出 5 个可复用骨架，按 AI 生产难度（资产量 / 动作风险 / 单镜时长 / 一致性压力）排出优先级。</li>
+          <li>发现共性：除单镜头样本外，镜头密度集中在 0.6—1.7 秒；转化点不靠口播，靠画面角标与常驻标题。</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══════════ 工具 ═══════════ -->
+  <section class="section" id="stack">
+    <div class="section__head reveal">
+      <h2 class="section__title">工具</h2>
+      <p class="section__label">Stack</p>
+    </div>
+
+    <div class="stack">
+      <div class="stack__group reveal">
+        <h3>拍摄</h3>
+        <ul>
+          <li>相机拍摄</li>
+          <li>人像摄影</li>
+          <li>电商平面</li>
+          <li>灯光布景</li>
+          <li>稳定器运镜</li>
+        </ul>
+      </div>
+      <div class="stack__group reveal">
+        <h3>后期</h3>
+        <ul>
+          <li>Premiere</li>
+          <li>After Effects</li>
+          <li>Photoshop</li>
+          <li>达芬奇调色</li>
+          <li>音频处理</li>
+        </ul>
+      </div>
+      <div class="stack__group reveal">
+        <h3>AIGC</h3>
+        <ul>
+          <li>Midjourney</li>
+          <li>可灵 Kling</li>
+          <li>ComfyUI</li>
+          <li>Runway</li>
+          <li>SDXL</li>
+        </ul>
+      </div>
+      <div class="stack__group reveal">
+        <h3>运营</h3>
+        <ul>
+          <li>抖音起号</li>
+          <li>视频号</li>
+          <li>抖店后台</li>
+          <li>直播运营</li>
+          <li>达人对接</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 04 联系 ═══════════ -->
+  <section class="section section--contact" id="contact">
+    <p class="eyebrow reveal">Get in touch</p>
+    <h2 class="contact__title reveal">如果你也有<span class="ital">想法</span>，<br />我们可以聊聊。</h2>
+
+    <a class="contact__mail reveal" href="mailto:3188063484@qq.com">3188063484@qq.com<span>↗</span></a>
+
+    <ul class="contact__links reveal">
+      <li><a href="https://www.douyin.com/" target="_blank" rel="noopener">抖音：41977819 ↗</a></li>
+      <li><a href="#" data-copy="Y-YouAreMySalvation" title="点击复制微信号">微信：Y-YouAreMySalvation</a></li>
+      <li><a href="mailto:3188063484@qq.com">邮箱：3188063484@qq.com</a></li>
+    </ul>
+  </section>
+
+  <footer class="foot">
+    <span>© <span id="year">2026</span> 姚定方 · 保留所有权利</span>
+    <span>手工搭建，无模板</span>
+    <a href="#top">回到顶部 ↑</a>
+  </footer>
+
+</main>
+
+<div class="preview" id="preview" aria-hidden="true">
+  <div class="preview__inner">
+    <span class="preview__no" id="previewNo">01</span>
+    <span class="preview__title" id="previewTitle">Atlas</span>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

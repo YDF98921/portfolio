@@ -261,16 +261,14 @@ main {
 .hero__portrait {
   margin: 0;
   min-width: 0;
-  isolation: isolate;
-  background: var(--paper);
 }
 .hero__portrait img {
   display: block;
   width: 100%;
-  max-width: 460px;
-  aspect-ratio: 1 / 1;
+  max-width: 430px;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  mix-blend-mode: multiply;
+  object-position: center 18%;
 }
 
 .hero__main {

@@ -234,6 +234,95 @@
     }
   );
 
+  /* ── 背景音乐 ───────────────────────────── */
+  var bgm = document.getElementById("bgm");
+  var soundBtn = document.getElementById("soundToggle");
+
+  if (bgm && soundBtn) {
+    var musicWanted = true;
+
+    var paintSound = function () {
+      var on = !bgm.paused;
+      soundBtn.classList.toggle("is-on", on);
+      soundBtn.setAttribute("aria-pressed", on ? "true" : "false");
+      soundBtn.setAttribute("aria-label", on ? "关闭背景音乐" : "开启背景音乐");
+      var label = soundBtn.querySelector(".sound__label");
+      if (label) label.textContent = on ? "音乐 开" : "音乐 关";
+    };
+
+    var playMusic = function () {
+      if (!musicWanted) return;
+      var p = bgm.play();
+      if (p && p.catch) p.catch(function () {});
+      paintSound();
+    };
+
+    var pauseMusic = function () {
+      if (!bgm.paused) bgm.pause();
+      paintSound();
+    };
+
+    /* 只在“用户主动看”的视频播放时停音乐，静音预览不影响 */
+    var userVideoPlaying = function () {
+      return Array.prototype.some.call(
+        document.querySelectorAll("video"),
+        function (v) {
+          return !v.paused && (!v.muted || v.dataset.userPlay === "true");
+        }
+      );
+    };
+
+    bgm.addEventListener("play", paintSound);
+    bgm.addEventListener("pause", paintSound);
+
+    playMusic();
+
+    var startMusicOnce = function (event) {
+      var t = event && event.target;
+      var skip = t && t.closest && (t.closest("video") || t.closest("#soundToggle"));
+      if (skip) {
+        document.removeEventListener("pointerdown", startMusicOnce);
+        document.removeEventListener("keydown", startMusicOnce);
+        return;
+      }
+      if (musicWanted && bgm.paused && !userVideoPlaying()) playMusic();
+      document.removeEventListener("pointerdown", startMusicOnce);
+      document.removeEventListener("keydown", startMusicOnce);
+    };
+    document.addEventListener("pointerdown", startMusicOnce);
+    document.addEventListener("keydown", startMusicOnce);
+
+    soundBtn.addEventListener("click", function (event) {
+      event.stopPropagation();
+      musicWanted = !musicWanted;
+      if (musicWanted) playMusic();
+      else pauseMusic();
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll("video"), function (video) {
+      video.addEventListener("click", function () {
+        video.dataset.userPlay = "true";
+        pauseMusic();
+      });
+      video.addEventListener("play", function () {
+        if (!video.muted || video.dataset.userPlay === "true") pauseMusic();
+      });
+      video.addEventListener("volumechange", function () {
+        if (!video.muted && !video.paused) pauseMusic();
+      });
+      video.addEventListener("pause", function () {
+        video.dataset.userPlay = "false";
+        window.setTimeout(function () {
+          if (musicWanted && bgm.paused && !userVideoPlaying()) playMusic();
+        }, 700);
+      });
+      video.addEventListener("ended", function () {
+        video.dataset.userPlay = "false";
+        if (musicWanted && bgm.paused) playMusic();
+      });
+    });
+  }
+
   /* ── 年份 ───────────────────────────────── */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());

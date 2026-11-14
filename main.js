@@ -242,12 +242,11 @@
     var musicWanted = true;
 
     var paintSound = function () {
-      var on = !bgm.paused;
-      soundBtn.classList.toggle("is-on", on);
-      soundBtn.setAttribute("aria-pressed", on ? "true" : "false");
-      soundBtn.setAttribute("aria-label", on ? "关闭背景音乐" : "开启背景音乐");
+      soundBtn.classList.toggle("is-on", musicWanted);
+      soundBtn.setAttribute("aria-pressed", musicWanted ? "true" : "false");
+      soundBtn.setAttribute("aria-label", musicWanted ? "关闭背景音乐" : "开启背景音乐");
       var label = soundBtn.querySelector(".sound__label");
-      if (label) label.textContent = on ? "音乐 开" : "音乐 关";
+      if (label) label.textContent = musicWanted ? "音乐 开" : "音乐 关";
     };
 
     var playMusic = function () {
@@ -276,6 +275,13 @@
     bgm.addEventListener("pause", paintSound);
 
     playMusic();
+
+    /* 浏览器若拦截，稍后再试几次；站内一旦有交互即可放行 */
+    [1200, 3200].forEach(function (delay) {
+      window.setTimeout(function () {
+        if (musicWanted && bgm.paused && !userVideoPlaying()) playMusic();
+      }, delay);
+    });
 
     var startMusicOnce = function (event) {
       var t = event && event.target;

@@ -253,9 +253,24 @@ main {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
-  gap: clamp(24px, 4vw, 64px);
-  align-items: end;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 76px);
+  align-items: center;
+}
+
+.hero__portrait {
+  margin: 0;
+  min-width: 0;
+  isolation: isolate;
+  background: var(--paper);
+}
+.hero__portrait img {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  mix-blend-mode: multiply;
 }
 
 .hero__main {
@@ -266,11 +281,10 @@ main {
 .hero__name {
   font-family: var(--display);
   font-weight: 400;
-  font-size: clamp(3.2rem, 11vw, 9.5rem);
-  font-size: clamp(3.2rem, 30cqw, 9.5rem);
-  line-height: 0.9;
-  letter-spacing: -0.01em;
-  margin: 16px 0 0;
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  margin: 14px 0 0;
 }
 .hero__name > span {
   display: block;
@@ -302,7 +316,7 @@ main {
   background: var(--ink-3);
 }
 
-.hero__side { padding-bottom: 8px; }
+.hero__side { margin-top: clamp(22px, 3vw, 32px); }
 
 .hero__lead {
   font-size: 1rem;
@@ -1063,15 +1077,16 @@ main {
     margin-left: 0;
     padding-top: 58px;
   }
-  .hero { min-height: auto; padding: clamp(56px, 12vh, 110px) 0 40px; }
+  .hero { min-height: auto; padding: clamp(56px, 12vh, 110px) 0 84px; }
 }
 
 @media (max-width: 860px) {
   .hero__grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
+    gap: 26px;
     align-items: start;
   }
+  .hero__portrait img { max-width: min(52vw, 210px); }
   .hero__orb { opacity: 0.55; }
   .hero__orb--1 { width: 78vw; right: -30%; top: 2%; }
 

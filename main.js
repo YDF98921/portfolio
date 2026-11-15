@@ -239,7 +239,7 @@
   var soundBtn = document.getElementById("soundToggle");
 
   if (bgm && soundBtn) {
-    var musicWanted = true;
+    var musicWanted = false;
 
     var paintSound = function () {
       soundBtn.classList.toggle("is-on", musicWanted);
@@ -274,29 +274,8 @@
     bgm.addEventListener("play", paintSound);
     bgm.addEventListener("pause", paintSound);
 
-    playMusic();
-
-    /* 浏览器若拦截，稍后再试几次；站内一旦有交互即可放行 */
-    [1200, 3200].forEach(function (delay) {
-      window.setTimeout(function () {
-        if (musicWanted && bgm.paused && !userVideoPlaying()) playMusic();
-      }, delay);
-    });
-
-    var startMusicOnce = function (event) {
-      var t = event && event.target;
-      var skip = t && t.closest && (t.closest("video") || t.closest("#soundToggle"));
-      if (skip) {
-        document.removeEventListener("pointerdown", startMusicOnce);
-        document.removeEventListener("keydown", startMusicOnce);
-        return;
-      }
-      if (musicWanted && bgm.paused && !userVideoPlaying()) playMusic();
-      document.removeEventListener("pointerdown", startMusicOnce);
-      document.removeEventListener("keydown", startMusicOnce);
-    };
-    document.addEventListener("pointerdown", startMusicOnce);
-    document.addEventListener("keydown", startMusicOnce);
+    /* 默认不出声，必须点右下角按钮才开始播放 */
+    paintSound();
 
     soundBtn.addEventListener("click", function (event) {
       event.stopPropagation();
